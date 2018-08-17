@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 class InstaxImage:
     """Image Utilities class."""
 
-    printHeight = 600
+    printHeight = 800
     printWidth = 800
 
     def __init__(self, verbose=False):
@@ -25,8 +25,8 @@ class InstaxImage:
         imgWidth, imgHeight = self.myImage.size
         self.logMessage("Initial Image Size: W: %s, H: %s" % (imgWidth, imgHeight))
         # Quick check that it's the right dimensions
-        if(imgWidth + imgHeight != 1400):
-            raise Exception("Image was not 800x600 or 600x800")
+        if(imgWidth + imgHeight != 1600):
+            raise Exception("Image was not 800x800")
         if(imgWidth != 800):
             # Rotate the image
             self.logMessage("Rotating")
@@ -76,13 +76,13 @@ class InstaxImage:
         """Rotate, Resize and Crop the image.
 
         Rotate, Resize and Crop the image, so that it is the correct
-        dimensions for printing to the Instax SP-2.
+        dimensions for printing to the Instax SP-3.
         """
-        maxSize = 600, 800  # The Max Image size
+        maxSize = 800, 800  # The Max Image size
         rotatedImage = rotate_image(self.sourceImage)
         image_ratio = rotatedImage.size[0] / float(rotatedImage.size[1])
 
-        if(rotatedImage.size[0] + rotatedImage.size[1] == 1400):
+        if(rotatedImage.size[0] + rotatedImage.size[1] == 1600):
             img = rotatedImage
         else:
             if image_ratio == 1.0:

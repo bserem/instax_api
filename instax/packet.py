@@ -1,7 +1,7 @@
-"""Fujifilm Instax SP-2 Packet Library.
+"""Fujifilm Instax SP-3 Packet Library.
 
 This packet library can be used to encode and decode packets to be sent to
-or recieved from a Fujifilm Instax SP-2. It is designed to be used with the
+or recieved from a Fujifilm Instax SP-3. It is designed to be used with the
 instax_api Python Library.
 """
 
@@ -289,7 +289,7 @@ class Packet(object):
         """Generate a response Byte Array.
 
         Takes Response arguments and packs them into a byteArray to be
-        sent to the Instax-SP2.
+        sent to the Instax-SP3.
         """
         self.encodedSessionTime = self.getFourByteInt(
             0, self.encodeFourByteInt(sessionTime))
@@ -446,7 +446,7 @@ class SpecificationsCommand(Packet):
     NAME = "Specifications"
     TYPE = Packet.MESSAGE_TYPE_SPECIFICATIONS
 
-    def __init__(self, mode, byteArray=None, maxHeight=800, maxWidth=600,
+    def __init__(self, mode, byteArray=None, maxHeight=800, maxWidth=800,
                  maxColours=256, unknown1=None, maxMsgSize=None, unknown2=None,
                  unknown3=None):
         """Initialise the Packet."""

@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(name='instax_api',
-      version='0.2',
-      description='Fujifilm Instax SP2 Library',
+      version='0.3',
+      description='Fujifilm Instax SP3 Library',
       url='https://github.com/jpwsutton/instax_api',
       author='James Sutton',
       author_email='james@jsutton.co.uk',

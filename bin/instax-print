@@ -42,7 +42,7 @@ args = parser.parse_args()
 if args.log:
     args.log = '{0:%Y-%m-%d.%H:%M:%S-log.json}'.format(datetime.datetime.now())
 
-myInstax = instax.SP2(ip=args.host, port=args.port, pinCode=args.pin,
+myInstax = instax.SP3(ip=args.host, port=args.port, pinCode=args.pin,
                       timeout=args.timeout, verbose=args.verbose)
 
 print("--- Instax SP-2 Printer Python Client ---")

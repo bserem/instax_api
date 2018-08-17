@@ -1,4 +1,4 @@
-"""Main SP2 Interface Class."""
+"""Main SP-3 Interface Class."""
 
 from .comms import SocketClientThread, ClientCommand, ClientReply
 import time
@@ -22,8 +22,8 @@ def progress(count, total, status=''):
     sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
     sys.stdout.flush()  # As suggested by Rom Ruben (see: http://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console/27871113#comment50529068_27871113)
 
-class SP2:
-    """SP2 Client interface."""
+class SP3:
+    """SP-3 Client interface."""
 
     def __init__(self, ip='192.168.0.251', port=8080,
                  timeout=10, pinCode=1111, verbose=False):
@@ -39,7 +39,7 @@ class SP2:
     def connect(self):
         """Connect to a printer."""
         if self.verbose:
-            print("Connecting to Instax SP-2 with timeout of: %s" % self.timeout)
+            print("Connecting to Instax SP-3 with timeout of: %s" % self.timeout)
         self.comms = SocketClientThread()
         self.comms.start()
         self.comms.cmd_q.put(ClientCommand(ClientCommand.CONNECT,
@@ -177,7 +177,7 @@ class SP2:
     def close(self, timeout=10):
         """Close the connection to the Printer."""
         if self.verbose:
-            print("Closing connection to Instax SP2")
+            print("Closing connection to Instax SP-3")
         self.comms.cmd_q.put(ClientCommand(ClientCommand.CLOSE))
         # Get current time
         start = int(time.time())
@@ -198,7 +198,7 @@ class SP2:
         self.comms = None
 
     def getPrinterInformation(self):
-        """Primary function to get SP-2 information."""
+        """Primary function to get SP-3 information."""
         self.connect()
         printerVersion = self.getPrinterVersion()
         printerModel = self.getPrinterModelName()
