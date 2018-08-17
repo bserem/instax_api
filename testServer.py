@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Instax SP-2 Test Server Wrapper.
+"""Instax SP-3 Test Server Wrapper.
 
 Author: James Sutton 2017 - jsutton.co.uk
 
@@ -21,7 +21,7 @@ import datetime
 import instax
 
 
-print("---------- Instax SP-2 Test Server ---------- ")
+print("---------- Instax SP-3 Test Server ---------- ")
 
 
 def remaining_type(x):

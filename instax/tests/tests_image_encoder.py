@@ -1,5 +1,5 @@
 """
-Instax SP2 Test File.
+Instax SP3 Test File.
 
 @jpwsutton 2016/17
 """
@@ -8,7 +8,7 @@ import instax
 
 
 class ImageTests(unittest.TestCase):
-    """Instax-SP2 Image Encoding / Decoding Test Class."""
+    """Instax-SP3 Image Encoding / Decoding Test Class."""
 
     def test_encode_and_decode_image(self):
         """Test Decoding and then Encoding a premade instax image."""
@@ -17,7 +17,7 @@ class ImageTests(unittest.TestCase):
         with open(encodedImageFile, 'rb') as infile:
             rawBytes = infile.read()
             rawInstaxBytes = bytearray(rawBytes)
-        self.assertEqual(len(rawInstaxBytes), 1440000)
+        self.assertEqual(len(rawInstaxBytes), 1920000)
 
         # Initialize The Instax Image
         instaxImage = instax.InstaxImage()
@@ -28,9 +28,9 @@ class ImageTests(unittest.TestCase):
         # Re-Encode the image
 
         encodedImage = instaxImage.encodeImage()
-        self.assertEqual(len(encodedImage), 1440000)
+        self.assertEqual(len(encodedImage), 1920000)
 
-        for x in range(1440000):
+        for x in range(1920000):
             if(rawInstaxBytes[x] != encodedImage[x]):
                 message = ("Mismatch: Index: %s: %s != %s" %
                            (x, rawInstaxBytes[x], encodedImage[x]))

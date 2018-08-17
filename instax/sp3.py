@@ -236,7 +236,7 @@ class SP3:
         # Reset the Printer
         time.sleep(1)
         self.connect()
-        progress(30, progressTotal, status='Reseting Printer.                         ')
+        progress(30, progressTotal, status='Resetting Printer.                         ')
         self.sendResetCommand()
         self.close()
 
@@ -244,7 +244,7 @@ class SP3:
         time.sleep(1)
         self.connect()
         progress(40, progressTotal, status='About to send Image.                       ')
-        self.sendPrepImageCommand(16, 0, 1440000)
+        self.sendPrepImageCommand(16, 0, 1920000)
         for segment in range(24):
             start = segment * 60000
             end = start + 60000

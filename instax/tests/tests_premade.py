@@ -1,5 +1,5 @@
 """
-Instax SP2 Test File.
+Instax SP3 Test File.
 
 @jpwsutton 2016/17
 """
@@ -9,7 +9,7 @@ import unittest
 
 class PacketTests(unittest.TestCase):
     """
-    Instax-SP2 Premade Packet Test Class.
+    Instax-SP3 Premade Packet Test Class.
 
     A series of tests to verify that existing commands and responses can be
     correctly decoded.
@@ -40,7 +40,7 @@ class PacketTests(unittest.TestCase):
         packetFactory = PacketFactory()
         decodedPacket = packetFactory.decode(msg)
         self.assertEqual(decodedPacket.payload['maxHeight'], 800)
-        self.assertEqual(decodedPacket.payload['maxWidth'], 600)
+        self.assertEqual(decodedPacket.payload['maxWidth'], 800)
         self.assertEqual(decodedPacket.payload['maxColours'], 256)
         self.assertEqual(decodedPacket.payload['unknown1'], 10)
         self.assertEqual(decodedPacket.payload['maxMsgSize'], 60000)
@@ -55,7 +55,7 @@ class PacketTests(unittest.TestCase):
         packetFactory = PacketFactory()
         decodedPacket = packetFactory.decode(msg)
         self.assertEqual(decodedPacket.payload['unknown1'], 257)
-        self.assertEqual(decodedPacket.payload['firmware'], '01.13')
+        self.assertEqual(decodedPacket.payload['firmware'], '01.02')
         self.assertEqual(decodedPacket.payload['hardware'], '00.00')
 
     def test_premade_resp_printCount(self):

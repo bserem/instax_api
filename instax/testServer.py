@@ -191,7 +191,7 @@ class TestServer:
         """Process a model name command."""
         sessionTime = decodedPacket.header['sessionTime']
         resPacket = ModelNameCommand(Packet.MESSAGE_MODE_RESPONSE,
-                                     modelName='SP-2')
+                                     modelName='SP-3')
         encodedResponse = resPacket.encodeResponse(sessionTime,
                                                    self.returnCode,
                                                    self.ejecting,

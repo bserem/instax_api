@@ -1,5 +1,5 @@
 """
-Instax SP2 Test File.
+Instax SP3 Test File.
 
 @jpwsutton 2016/17
 """
@@ -65,7 +65,7 @@ class PacketTests(unittest.TestCase):
         printCount = 7
         resPacket = SpecificationsCommand(Packet.MESSAGE_MODE_RESPONSE,
                                           maxHeight=800,
-                                          maxWidth=600,
+                                          maxWidth=800,
                                           maxColours=256,
                                           unknown1=10,
                                           maxMsgSize=60000,
@@ -91,7 +91,7 @@ class PacketTests(unittest.TestCase):
         # Verify Payload
         # print(decodedPacket.payload)
         self.assertEqual(decodedPacket.payload['maxHeight'], 800)
-        self.assertEqual(decodedPacket.payload['maxWidth'], 600)
+        self.assertEqual(decodedPacket.payload['maxWidth'], 800)
         self.assertEqual(decodedPacket.payload['maxColours'], 256)
         self.assertEqual(decodedPacket.payload['unknown1'], 10)
         self.assertEqual(decodedPacket.payload['maxMsgSize'], 60000)
@@ -148,7 +148,7 @@ class PacketTests(unittest.TestCase):
 
         # Verify Payload
         self.assertEqual(decodedPacket.payload['unknown1'], 254)
-        self.assertEqual(decodedPacket.payload['firmware'], '01.13')
+        self.assertEqual(decodedPacket.payload['firmware'], '01.02')
         self.assertEqual(decodedPacket.payload['hardware'], '00.00')
 
     def test_encode_cmd_printCount(self):
@@ -227,7 +227,7 @@ class PacketTests(unittest.TestCase):
         ejecting = 0
         battery = 2
         printCount = 7
-        modelName = 'SP-2'
+        modelName = 'SP-3'
         resPacket = ModelNameCommand(Packet.MESSAGE_MODE_RESPONSE,
                                      modelName=modelName)
         encodedResponse = resPacket.encodeResponse(sessionTime, returnCode,
@@ -398,7 +398,7 @@ class PacketTests(unittest.TestCase):
         pinCode = 1111
         format = 16
         options = 128
-        imgLength = 1440000
+        imgLength = 1920000
         cmdPacket = PrepImageCommand(Packet.MESSAGE_MODE_COMMAND,
                                      format=format,
                                      options=options,
