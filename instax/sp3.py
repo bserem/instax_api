@@ -245,7 +245,7 @@ class SP3:
         self.connect()
         progress(40, progressTotal, status='About to send Image.                       ')
         self.sendPrepImageCommand(16, 0, 1920000)
-        for segment in range(24):
+        for segment in range(32):
             start = segment * 60000
             end = start + 60000
             segmentBytes = imageBytes[start:end]
